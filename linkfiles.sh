@@ -2,16 +2,16 @@
 
 # function to create a symlink
 symlink () { # srcdir destdir [srcItem] item
-    # even though the links point to the absolute path
-    if [ -e "$1/$3" ]; then
-        if [ ! -z "$4" ]; then
-            ln -sFi "$1/$3" "$2/$4"
-        else
-            ln -sFi "$1/$3" "$2/$3"
-        fi
-    else
-        echo "no file: $1/$3"
-    fi
+	# even though the links point to the absolute path
+	if [ -e "$1/$3" ]; then
+		if [ ! -z "$4" ]; then
+			ln -sFi "$1/$3" "$2/$4"
+		else
+			ln -sFi "$1/$3" "$2/$3"
+		fi
+	else
+		echo "no file: $1/$3"
+	fi
 }
 
 MY_PATH=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)

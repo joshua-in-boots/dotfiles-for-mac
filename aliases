@@ -1,16 +1,23 @@
 alias grep='grep --color=auto'
 alias hs='history 0 | grep'
 alias ls='ls -G'
-	alias la='ls -a'
-	alias ll='ls -alh'
-alias logpress='logpresso'
-alias lopgresso='logpresso'
+alias la='ls -a'
+alias ll='ls -alh'
 alias myip='curl http://ipecho.net/plain; echo'
-alias mykeybase='cd /Volumes/Keybase\ \(joshua\)'
 alias Pwd='pwd -P'
 alias rm='rm -i'
 alias sha256='shasum -a 256'
+
+# ssh related
 alias ssh-key-fingerprint='ssh-keygen -l -E md5 -f'
-alias ssh='kssh'
+
+# vagrant related
+alias vagrant-status='vagrant global-status --prune'
+
+# git related
 alias wdiff='git wdiff'
 alias wlog='git log -p --word-diff=color'
+
+# keybase related
+alias mykeybase='cd /Volumes/Keybase'
+alias ssh='kssh'

@@ -58,6 +58,10 @@ if [ -f "$HOME/.aliases" ]; then
 	source "$HOME/.aliases"
 fi
 
+if [ -f "$HOME/.aliases-private" ]; then
+	source "$HOME/.aliases-private"
+fi
+
 # Package managers / utilities
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
@@ -85,5 +89,6 @@ else
 	open x-man-page://"$2"/"$1"
 fi
 
+neofetch
 # Always keep this line at last
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

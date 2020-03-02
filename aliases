@@ -14,6 +14,10 @@ alias ssh-key-fingerprint='ssh-keygen -l -E md5 -f'
 # vagrant related
 alias vagrant-status='vagrant global-status --prune'
 
+# vmware related
+alias vmnet-cli='sudo /Applications/VMware\ Fusion.app/Contents/Library/vmnet-cli'
+alias vmnet-restart='vmnet-cli --configure; vmnet-cli --start'
+
 # git related
 alias wdiff='git wdiff'
 alias wlog='git log -p --word-diff=color'
@@ -21,3 +25,6 @@ alias wlog='git log -p --word-diff=color'
 # keybase related
 alias mykeybase='cd /Volumes/Keybase'
 alias ssh='kssh'
+
+# system commands
+alias htop='sudo htop'

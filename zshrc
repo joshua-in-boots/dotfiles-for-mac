@@ -39,7 +39,7 @@ fi
 zstyle ':completion:*' completer _list _oldlist _expand _complete _ignored _match _correct _approximate _prefix
 zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
-compinit
+compinit -i
 
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=10000
@@ -83,12 +83,15 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # if there are two arguments, interpret the first as the section
 # for unknown reasons the section has to come _first_ in the URL
 
-if [[ -z $2 ]]; then
-	open x-man-page://"$1"
-else
-	open x-man-page://"$2"/"$1"
-fi
+man() {
+	if [[ -z $2 ]]; then
+		open x-man-page://"$1"
+	else
+		open x-man-page://"$2"/"$1"
+	fi
+}
 
 neofetch
+
 # Always keep this line at last
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

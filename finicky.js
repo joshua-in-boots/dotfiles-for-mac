@@ -3,18 +3,23 @@ module.exports = {
   handlers: [
     {
       match: ({ sourceBundleIdentifier }) => {
-        finicky.notify(sourceBundleIdentifier);
         finicky.log(sourceBundleIdentifier);
       },
     browser: "Firefox",
     },
     {
-      match: /https:\/\/www\.notion\.so\/joshuainboots/,
+      match: /.*\.notion\.so\/joshuainboots/,
       browser: "Firefox"
     },
     {
-      match: /https:\/\/www\.notion\.so\/logpresso/,
+      match: /.*\.notion\.so\/logpresso/,
       browser: "Google Chrome"
+    },
+    {
+      match: finicky.matchHostnames([
+        /.*\.anglican.kr$/
+      ]),
+      browser: "Safari"
     },
     {
       // Open google.com and *.google.com urls in Google Chrome

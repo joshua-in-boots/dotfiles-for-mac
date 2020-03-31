@@ -76,13 +76,6 @@ fi
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# functions
-# if there is a single argument, open its man page using the URL
-# this opens the 'yellow' single window man page in Terminal.app
-
-# if there are two arguments, interpret the first as the section
-# for unknown reasons the section has to come _first_ in the URL
-
 man() {
 	if [[ -z $2 ]]; then
 		open x-man-page://"$1"

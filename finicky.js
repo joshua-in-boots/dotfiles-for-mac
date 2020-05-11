@@ -1,56 +1,43 @@
-module.exports = {
-  defaultBrowser: "Firefox",
+  module.exports = {
+  defaultBrowser: "Safari",
 
   handlers: [
     {
       match: ({ sourceBundleIdentifier }) => {
         finicky.log(sourceBundleIdentifier);
       },
-    browser: "Firefox",
+    browser: "Safari",
     },
-
-    // Open my personal notion notes in Firefox
-    {
-      match: /.*\.notion\.so\/joshuainboots/,
-      browser: "Firefox"
-    },
-
-    // Open notion nontes of working place in Google Chrome 
     {
       
       match: /.*\.notion\.so\/logpresso/,
-      browser: "Google Chrome"
+      browser: "Microsoft Edge"
     },
-
-    // Open any anglican.kr links in Safari
-    {
-      match: finicky.matchHostnames([
-        /.*\.anglican.kr$/
-      ]),
-      browser: "Safari"
-    },
-
-    // Open any G Suite files in Google File Stream with Google Chrome
     {
     
       match: ({ sourceBundleIdentifier }) =>
         ["com.google.drivefs"].includes(sourceBundleIdentifier),
-      browser: "Google Chrome"
+      browser: "Microsoft Edge"
     },
-
-    // Open google.com and youtube.com urls in Google Chrome
     {
     
       match: finicky.matchHostnames([
-        // "google.com", // match google.com domain as string (to make regular expression less complicated)
         "accounts.google.com",
         "doc.google.com",
         "drive.google.com",
-        ///.*\.google.com$/, // match all google.com subdomains
-        /.*\.youtube.com$/, // match all youtube.com subdomains
+        // match all youtube.com subdomains
+        /.*\.youtube.com$/,
         /.*\.local$/
       ]),
-      browser: "Google Chrome"
+      browser: "Microsoft Edge"
+    },
+    {
+    
+      match: finicky.matchHostnames([
+        "facebook.com",
+        /.*\.facebook.com$/
+      ]),
+      browser: "Firefox"
     }
   ]
 };

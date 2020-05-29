@@ -10,6 +10,11 @@
     },
     {
       
+      match: /.*\.anglican\.kr/,
+      browser: "Safari"
+    },
+    {
+      
       match: /.*\.notion\.so\/logpresso/,
       browser: "Microsoft Edge"
     },

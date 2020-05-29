@@ -8,24 +8,20 @@
       },
     browser: "Microsoft Edge",
     },
-    {
-      
+    {      
       match: /.*\.anglican\.kr/,
       browser: "Safari"
     },
-    {
-      
+    {      
       match: /.*\.notion\.so\/logpresso/,
       browser: "Microsoft Edge"
     },
-    {
-    
+    {    
       match: ({ sourceBundleIdentifier }) =>
         ["com.google.drivefs"].includes(sourceBundleIdentifier),
       browser: "Microsoft Edge"
     },
-    {
-    
+    {    
       match: finicky.matchHostnames([
         "accounts.google.com",
         "doc.google.com",
@@ -36,8 +32,7 @@
       ]),
       browser: "Microsoft Edge"
     },
-    {
-    
+    {    
       match: finicky.matchHostnames([
         "facebook.com",
         /.*\.facebook.com$/

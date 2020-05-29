@@ -1,12 +1,12 @@
   module.exports = {
-  defaultBrowser: "Safari",
+  defaultBrowser: "Microsoft Edge",
 
   handlers: [
     {
       match: ({ sourceBundleIdentifier }) => {
         finicky.log(sourceBundleIdentifier);
       },
-    browser: "Safari",
+    browser: "Microsoft Edge",
     },
     {
       
@@ -25,8 +25,8 @@
         "accounts.google.com",
         "doc.google.com",
         "drive.google.com",
-        // match all youtube.com subdomains
         /.*\.youtube.com$/,
+        /.*\.zendesk.com$/,
         /.*\.local$/
       ]),
       browser: "Microsoft Edge"

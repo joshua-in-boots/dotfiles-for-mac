@@ -19,6 +19,7 @@ setopt HIST_REDUCE_BLANKS
 # ask whether you want do that instead
 setopt CORRECT
 setopt CORRECT_ALL
+CORRECT_IGNORE_FILE='.*'
 
 # exclude ._* Files when building tar archives
 export COPYFILE_DISABLE=true
@@ -41,6 +42,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit -i
 
+# History
 HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 HISTSIZE=10000
 SAVEHIST=100000
@@ -54,6 +56,7 @@ bindkey -e
 bindkey $'^[[A' up-line-or-search    # up arrow
 bindkey $'^[[B' down-line-or-search  # down arrow
 
+# Aliases
 if [ -f "$HOME/.aliases" ]; then
 	source "$HOME/.aliases"
 fi
@@ -62,20 +65,7 @@ if [ -f "$HOME/.aliases-private" ]; then
 	source "$HOME/.aliases-private"
 fi
 
-# Package managers / utilities
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
+# Functions
 man() {
 	if [[ -z $2 ]]; then
 		open x-man-page://"$1"
@@ -83,6 +73,25 @@ man() {
 		open x-man-page://"$2"/"$1"
 	fi
 }
+
+# Java
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+
+# Package managers / utilities
+# pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# pyenv-virtualenv
+if command -v pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 neofetch
 

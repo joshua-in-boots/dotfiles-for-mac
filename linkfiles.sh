@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env zsh
 
 # function to create a symlink
 symlink () { # srcdir destdir [srcItem] item
 	# even though the links point to the absolute path
 	if [ -e "$1/$3" ]; then
-		if [ ! -z "$4" ]; then
+		if [ -n "$4" ]; then
 			ln -sFi "$1/$3" "$2/$4"
 		else
 			ln -sFi "$1/$3" "$2/$3"

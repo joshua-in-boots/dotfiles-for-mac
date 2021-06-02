@@ -16,13 +16,6 @@ alias myip='curl http://ipecho.net/plain; echo'
 # ssh related
 alias ssh.fingerprint='ssh-keygen -l -E md5 -f'
 
-# VMware Fusion
-if [ -f "/Applications/VMware\ Fusion.app/Contents/Library/vmrun" ]; then
-	alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
-	alias vmnet-cli='sudo /Applications/VMware\ Fusion.app/Contents/Library/vmnet-cli'
-	alias vmnet-restart='vmnet-cli --configure; vmnet-cli --start'
-fi
-
 # vagrant related
 alias v.status='vagrant global-status --prune'
 
@@ -43,3 +36,5 @@ alias soanr='sonar'
 
 # Application Open
 alias typora="open -a /Applications/Typora.app/Contents/MacOS/Typora"
+
+alias ssldump="SSLKEYLOGFILE=/tmp/tmp-google/.ssl-key.log /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/tmp-google"

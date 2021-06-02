@@ -34,51 +34,6 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTFILE="$HOME/.bash_history"
 
-# exclude ._* Files when building tar archives
-export COPYFILE_DISABLE=true
-export EDITOR='subl -w'
-
 export PS1='\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\033[1;31m\]\$\[\033[0m\] '
 
-# direnv specific config
-eval "$(direnv hook bash)"
 
-# Add tab completion for bash completion 2
-if command -v brew 2&>/dev/null; then
- 	for COMPLETION in $(brew --prefix)/etc/bash_completion.d/*; do
-			[[ -f "$COMPLETION" ]] && source "$COMPLETION"
-	done
-	if [[ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]]; then
-		source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
-  	fi
-fi
-
-if [ -f "$HOME/.aliases" ]; then
-	source "$HOME/.aliases"
-fi
-
-# pyenv specific config
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
-if command -v pyenv-virtualenv-init > /dev/null; then
-  eval "$(pyenv virtualenv-init -)"
-fi
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-# functions
-# if there is a single argument, open its man page using the URL
-# this opens the 'yellow' single window man page in Terminal.app
-
-# if there are two arguments, interpret the first as the section
-# for unknown reasons the section has to come _first_ in the URL
-
-if [[ -z $2 ]]; then
-	open x-man-page://"$1"
-else
-	open x-man-page://"$2"/"$1"
-fi

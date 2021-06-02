@@ -66,6 +66,10 @@ if [ -f "$HOME/.aliases-private" ]; then
 fi
 
 # Functions
+manpdf() {
+	man -t "${1}" | open -f -a /System/Applications/Preview.app/
+}
+
 man() {
 	if [[ -z $2 ]]; then
 		open x-man-page://"$1"
@@ -75,7 +79,7 @@ man() {
 }
 
 # Java
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+unset JAVA_HOME; export JAVA_HOME=$(/usr/libexec/java_home -v 11.0.11)
 
 # Package managers / utilities
 # pyenv
@@ -83,13 +87,17 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 
 # pyenv-virtualenv
 if command -v pyenv-virtualenv-init > /dev/null; then
   eval "$(pyenv virtualenv-init -)"
 fi
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
